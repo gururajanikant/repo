@@ -25,11 +25,13 @@ public class UserListController {
 	@RequestMapping(value="/AddUser.htm",method=RequestMethod.POST)
 	public @ResponseBody String addUser(@ModelAttribute(value="user") User user, BindingResult result ){
 		String returnText;
+		String returnTextVal;
 		if(!result.hasErrors()){
 			userList.add(user);
 			returnText = "User has been added to the list. Total number of users are " + userList.size();
 		}else{
 			returnText = "Sorry, an error has occur. User has not been added to list.";
+			returnTextVal = "Sorry, an error has occurred. User has not been added to list.";
 		}
 		return returnText;
 	}
